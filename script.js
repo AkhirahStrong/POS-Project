@@ -6,9 +6,10 @@ document.querySelector(".menuIcon").addEventListener("click", function (e) {
     menuItems.classList.add("show-menu");
   } else {
     menuItems.style.display = "none";
-    menuItems.classList.remove("show-menu"); // Remove class for animation
-    setTimeout(function () {
-      menuItems.style.display = "none";
-    }, 300);
+    // menuItems.style.display = "none";
+    // menuItems.classList.remove("show-menu"); // Remove class for animation
+    // setTimeout(function () {
+    //   menuItems.style.display = "none";
+    // }, 300);
   }
 });
