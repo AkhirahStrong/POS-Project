@@ -18,6 +18,30 @@ let cars = [
     price: 12000,
     available: true,
   },
+  {
+    make: "Ford",
+    model: "Flex",
+    year: 2013,
+    color: "Black",
+    price: 12000,
+    available: true,
+  },
+  {
+    make: "Ford",
+    model: "Flex",
+    year: 2011,
+    color: "White",
+    price: 12000,
+    available: true,
+  },
+  {
+    make: "Chevy",
+    model: "Sonic",
+    year: 2013,
+    color: "Black",
+    price: 12000,
+    available: true,
+  },
 ];
 
 document.getElementById("search-container").addEventListener("submit", (e) => {
@@ -25,7 +49,27 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
   const data = new FormData(event.target);
   const make = data.get("make");
   const model = data.get("model");
+  if (model === "" && make === "") {
+    console.error("Require Input");
+  } else if (model === "") {
+    findCarByMake(make);
+  } else {
+    findCarByMakeModel(make, model);
+  }
   console.log(make + model);
 });
 
-function findCarByName(array, make, model) {}
+function findCarByMake(make) {
+  let filteredCars = cars;
+  return filteredCars.filter((car) => car.make === make);
+}
+
+function findCarByMakeModel(make, model) {
+  let filteredCars = cars;
+
+  return filteredCars.filter((car) => car.make === make && car.model === model);
+}
+
+// console.log(findCarByMake("Ford"));
+console.log(cars);
+// console.log(findCarByMakeModel("Ford", "Flex"));
