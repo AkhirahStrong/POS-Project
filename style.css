@@ -11,13 +11,14 @@ body {
 /* Nav Section */
 
 .menu-style {
-  /* position: fixed; */
+  position: fixed;
   display: flex;
   justify-content: space-between;
   background-color: rgb(241, 243, 246);
   color: rgb(13, 51, 80);
   align-items: center;
-  overflow: hidden;
+  right: 0;
+  left: 0;
 }
 
 .menu-style2 {
@@ -44,7 +45,7 @@ body {
 .show-menu {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 10px;
 }
@@ -82,7 +83,7 @@ body {
 .header-section {
   display: flex;
   flex-direction: column;
-  background-image: url("/imgs/maxresdefault.jpg");
+  /* background-image: url("/imgs/maxresdefault.jpg"); */
   background-size: cover;
   background-position: center;
   height: 600px;
