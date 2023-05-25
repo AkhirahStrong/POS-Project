@@ -80,3 +80,20 @@ function findCarByMakeModel(make, model) {
 // console.log(findCarByMake("Ford"));
 console.log(cars);
 // console.log(findCarByMakeModel("Ford", "Flex"));
+
+// document.querySelector("#make-input") - search function
+
+let makeinput = document.querySelector("#make-input") 
+
+let modelinput = document.querySelector("#model-input")
+
+let search = document.querySelector("#search-container > button")
+
+search.addEventListener('click', function(){
+  console.log(makeinput.innerHTML)
+
+  const filteredCars = cars.filter(car =>
+    car.model.toLowerCase().includes(makeinput.innerHTML)
+  );
+console.log(filteredCars)
+})
