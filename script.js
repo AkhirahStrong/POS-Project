@@ -11,38 +11,45 @@ document.querySelector(".menuIcon").addEventListener("click", function (e) {
 
 let cars = [
   {
-    make: "Ford",
-    model: "Taurus",
-    year: 2013,
+    make: "BMW",
+    model: "i7",
+    year: 2023,
     color: "Black",
-    price: 12000,
+    price: 180000,
+    available: true,
+  },
+  {
+    make: "Jeep",
+    model: "Cherokee Wagoneer",
+    year: 1975,
+    color: "Black",
+    price: 50000,
     available: true,
   },
   {
     make: "Ford",
-    model: "Flex",
-    year: 2013,
+    model: "Mustang",
+    year: 1975,
     color: "Black",
-    price: 12000,
+    price: 80000,
     available: true,
   },
   {
-    make: "Ford",
-    model: "Flex",
-    year: 2011,
-    color: "White",
-    price: 12000,
-    available: true,
-  },
-  {
-    make: "Chevy",
-    model: "Sonic",
-    year: 2013,
-    color: "Black",
-    price: 12000,
+    make: "Lancia",
+    model: "Statos",
+    year: 1978,
+    color: "Green",
+    price: 120000,
     available: true,
   },
 ];
+
+for(let car of cars) {
+  const carListElement = document.createElement('li');
+  carListElement.classList.add('car');
+  carListElement.innerHTML = `${car.year} ${car.make} ${car.model}`;
+  document.getElementById('car-list').append(carListElement);
+}
 
 document.getElementById("search-container").addEventListener("submit", (e) => {
   e.preventDefault();

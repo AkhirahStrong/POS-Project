@@ -135,3 +135,16 @@ body {
 .footer {
   background-color: rgb(29, 89, 173);
 }
+
+#car-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.car {
+  background-color: lightblue;
+  padding: 20px;
+  margin-inline: 10px;
+}
