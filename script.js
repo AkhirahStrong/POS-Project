@@ -17,6 +17,7 @@ let cars = [
     color: "Black",
     price: 180000,
     available: true,
+    image: "/imgs/benz.jpg",
   },
   {
     make: "Jeep",
@@ -117,20 +118,40 @@ let cars = [
 ];
 
 function showCars(array = cars) {
-  for(let car of array) {
-    const carListElement = document.createElement('li');
-    carListElement.classList.add('car');
-    carListElement.innerHTML = `${car.year} ${car.make} ${car.model}`;
-    document.getElementById('car-list').append(carListElement);
+  for (let car of array) {
+    const carListElement = document.createElement("li");
+    carListElement.classList.add("car");
+    carListElement.innerHTML = `${car.year} ${car.make} ${car.model} `;
+    document.getElementById("car-list").append(carListElement);
+
+    const imageElement = document.createElement("img");
+    imageElement.src = car.image;
+    imageElement.classList.add("car-image");
+    carListElement.appendChild(imageElement);
+
+    const detailsElement = document.createElement("div");
+    detailsElement.classList.add("car-details");
+    detailsElement.innerHTML = `
+        
+        <p>Color: ${car.color}</p>
+        <p>Price: ${car.price}</p>
+        <p>Available: ${car.available ? "Yes" : "No"}</p>
+    `;
+    carListElement.appendChild(detailsElement);
+
+    document.getElementById("car-list").appendChild(carListElement);
+
+    const addToCart = document.createElement("button");
+    addToCart.textContent = "Cart";
   }
 }
 
 function hideCars() {
-  const ul = document.getElementById('car-list');
-  while(ul.firstChild) ul.removeChild(ul.firstChild);
+  const ul = document.getElementById("car-list");
+  while (ul.firstChild) ul.removeChild(ul.firstChild);
 }
 
-showCars()
+showCars();
 
 document.getElementById("search-container").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -138,17 +159,17 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
   const make = data.get("make");
   const model = data.get("model");
   if (model === "" && make === "") {
-    hideCars()
-    showCars()
-    console.error('Input Required');
+    hideCars();
+    showCars();
+    console.error("Input Required");
   } else if (model === "") {
     findCarByMake(make);
   } else {
     findCarByMakeModel(make, model);
   }
   console.log(make + model);
-  document.getElementById('make-input').value = '';
-  document.getElementById('model-input').value = '';
+  document.getElementById("make-input").value = "";
+  document.getElementById("model-input").value = "";
 });
 
 function findCarByMake(make) {
@@ -160,7 +181,9 @@ function findCarByMake(make) {
 function findCarByMakeModel(make, model) {
   hideCars();
   let filteredCars = cars;
-  showCars(filteredCars.filter((car) => car.make === make && car.model === model));
+  showCars(
+    filteredCars.filter((car) => car.make === make && car.model === model)
+  );
 }
 
 // console.log(findCarByMake("Ford"));
@@ -169,17 +192,17 @@ console.log(cars);
 
 // document.querySelector("#make-input") - search function
 
-let makeinput = document.querySelector("#make-input") 
+let makeinput = document.querySelector("#make-input");
 
-let modelinput = document.querySelector("#model-input")
+let modelinput = document.querySelector("#model-input");
 
-let search = document.querySelector("#search-container > button")
+let search = document.querySelector("#search-container > button");
 
-search.addEventListener('click', function(){
-  console.log(makeinput.innerHTML)
+search.addEventListener("click", function () {
+  console.log(makeinput.innerHTML);
 
-  const filteredCars = cars.filter(car =>
+  const filteredCars = cars.filter((car) =>
     car.model.toLowerCase().includes(makeinput.innerHTML)
   );
-console.log(filteredCars)
-})
+  console.log(filteredCars);
+});
