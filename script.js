@@ -117,20 +117,20 @@ let cars = [
 ];
 
 function showCars(array = cars) {
-  for(let car of array) {
-    const carListElement = document.createElement('li');
-    carListElement.classList.add('car');
+  for (let car of array) {
+    const carListElement = document.createElement("li");
+    carListElement.classList.add("car");
     carListElement.innerHTML = `${car.year} ${car.make} ${car.model}`;
-    document.getElementById('car-list').append(carListElement);
+    document.getElementById("car-list").append(carListElement);
   }
 }
 
 function hideCars() {
-  const ul = document.getElementById('car-list');
-  while(ul.firstChild) ul.removeChild(ul.firstChild);
+  const ul = document.getElementById("car-list");
+  while (ul.firstChild) ul.removeChild(ul.firstChild);
 }
 
-showCars()
+showCars();
 
 document.getElementById("search-container").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -138,17 +138,17 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
   const make = data.get("make");
   const model = data.get("model");
   if (model === "" && make === "") {
-    hideCars()
-    showCars()
-    console.error('Input Required');
+    hideCars();
+    showCars();
+    console.error("Input Required");
   } else if (model === "") {
     findCarByMake(make);
   } else {
     findCarByMakeModel(make, model);
   }
   console.log(make + model);
-  document.getElementById('make-input').value = '';
-  document.getElementById('model-input').value = '';
+  document.getElementById("make-input").value = "";
+  document.getElementById("model-input").value = "";
 });
 
 function findCarByMake(make) {
@@ -160,27 +160,22 @@ function findCarByMake(make) {
 function findCarByMakeModel(make, model) {
   hideCars();
   let filteredCars = cars;
-  showCars(filteredCars.filter((car) => car.make === make && car.model === model));
+  showCars(
+    filteredCars.filter((car) => car.make === make && car.model === model)
+  );
 }
 
-// console.log(findCarByMake("Ford"));
-console.log(cars);
-// console.log(findCarByMakeModel("Ford", "Flex"));
+let makeinput = document.querySelector("#make-input");
 
-// document.querySelector("#make-input") - search function
+let modelinput = document.querySelector("#model-input");
 
-let makeinput = document.querySelector("#make-input") 
+let search = document.querySelector("#search-container > button");
 
-let modelinput = document.querySelector("#model-input")
+search.addEventListener("click", function () {
+  console.log(makeinput.innerHTML);
 
-let search = document.querySelector("#search-container > button")
-
-search.addEventListener('click', function(){
-  console.log(makeinput.innerHTML)
-
-  const filteredCars = cars.filter(car =>
+  const filteredCars = cars.filter((car) =>
     car.model.toLowerCase().includes(makeinput.innerHTML)
   );
-console.log(filteredCars)
-})
-
+  console.log(filteredCars);
+});
