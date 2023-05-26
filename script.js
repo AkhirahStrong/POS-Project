@@ -121,28 +121,8 @@ function showCars(array = cars) {
   for (let car of array) {
     const carListElement = document.createElement("li");
     carListElement.classList.add("car");
-    carListElement.innerHTML = `${car.year} ${car.make} ${car.model} `;
+    carListElement.innerHTML = `${car.year} ${car.make} ${car.model}`;
     document.getElementById("car-list").append(carListElement);
-
-    const imageElement = document.createElement("img");
-    imageElement.src = car.image;
-    imageElement.classList.add("car-image");
-    carListElement.appendChild(imageElement);
-
-    const detailsElement = document.createElement("div");
-    detailsElement.classList.add("car-details");
-    detailsElement.innerHTML = `
-        
-        <p>Color: ${car.color}</p>
-        <p>Price: ${car.price}</p>
-        <p>Available: ${car.available ? "Yes" : "No"}</p>
-    `;
-    carListElement.appendChild(detailsElement);
-
-    document.getElementById("car-list").appendChild(carListElement);
-
-    const addToCart = document.createElement("button");
-    addToCart.textContent = "Cart";
   }
 }
 
