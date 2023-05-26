@@ -186,12 +186,6 @@ function findCarByMakeModel(make, model) {
   );
 }
 
-// console.log(findCarByMake("Ford"));
-console.log(cars);
-// console.log(findCarByMakeModel("Ford", "Flex"));
-
-// document.querySelector("#make-input") - search function
-
 let makeinput = document.querySelector("#make-input");
 
 let modelinput = document.querySelector("#model-input");
