@@ -81,16 +81,16 @@ body {
 
 /* Header */
 .header-section {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  /* background-image: url("/imgs/maxresdefault.jpg"); */
+  background-image: url("/imgs/maxresdefault.jpg");
   background-size: cover;
   background-position: center;
   height: 600px;
   color: aliceblue;
   align-items: center;
   background-color: rgba(0, 0, 0, 1);
-  z-index: 999;
+  z-index: 999; */
 }
 
 .search-box {
@@ -147,4 +147,16 @@ body {
   background-color: lightblue;
   padding: 20px;
   margin: 10px;
+  width: 100%;
+  /* max-width: ; */
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
 }
