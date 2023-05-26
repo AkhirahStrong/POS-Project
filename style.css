@@ -35,13 +35,6 @@ body {
   margin: 5px;
 }
 
-.menuIcon {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  margin-right: 15px;
-}
-
 .show-menu {
   display: flex;
   flex-direction: column;

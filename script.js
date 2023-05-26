@@ -1,12 +1,5 @@
-document.querySelector(".menuIcon").addEventListener("click", function (e) {
+document.getElementById('checkout-btn').addEventListener("click", function (e) {
   e.preventDefault();
-  let menuItems = document.querySelector(".mobile-menu");
-  if (menuItems.style.display === "none") {
-    menuItems.style.display = "flex";
-    menuItems.classList.add("show-menu");
-  } else {
-    menuItems.style.display = "none";
-  }
 });
 
 let cars = [
@@ -85,7 +78,7 @@ let cars = [
   {
     make: "Jeep",
     model: "Wrangler",
-    year: 2013,
+    year: 2007,
     color: "Red",
     price: 12500,
     available: true,
@@ -114,6 +107,14 @@ let cars = [
     price: 40000,
     available: true,
   },
+  {
+    make: "BMW",
+    model: "X1",
+    year: 2013,
+    color: "Maroon",
+    price: 15000,
+    available: true,
+  }
 ];
 
 function showCars(array = cars) {
@@ -134,7 +135,7 @@ showCars()
 
 document.getElementById("search-container").addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = new FormData(event.target);
+  const data = new FormData(e.target);
   const make = data.get("make");
   const model = data.get("model");
   if (model === "" && make === "") {
@@ -162,7 +163,3 @@ function findCarByMakeModel(make, model) {
   let filteredCars = cars;
   showCars(filteredCars.filter((car) => car.make === make && car.model === model));
 }
-
-// console.log(findCarByMake("Ford"));
-console.log(cars);
-// console.log(findCarByMakeModel("Ford", "Flex"));
