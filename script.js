@@ -1,3 +1,4 @@
+// Displays menu
 document.querySelector(".menuIcon").addEventListener("click", function (e) {
   e.preventDefault();
   let menuItems = document.querySelector(".mobile-menu");
@@ -10,6 +11,7 @@ document.querySelector(".menuIcon").addEventListener("click", function (e) {
   }
 });
 
+//Remove menu on click
 document.addEventListener("click", function (e) {
   const menu = document.querySelector(".mobile-menu");
   const menuIcon = document.querySelector(".menuIcon");
@@ -19,6 +21,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
+//Array for car objects
 let cars = [
   {
     make: "BMW",
@@ -141,17 +144,19 @@ let cars = [
 
 function showCars(array = cars) {
   for (let car of array) {
+    //Display year make and model
     const carListElement = document.createElement("li");
-    // listItem.classList.add("list-item");
     carListElement.classList.add("car");
     carListElement.innerHTML = `${car.year} ${car.make} ${car.model} `;
     document.getElementById("car-list").append(carListElement);
 
+    //Display images
     const imageElement = document.createElement("img");
     imageElement.src = car.image;
     imageElement.classList.add("car-image");
     carListElement.appendChild(imageElement);
 
+    //Display color, price, and availability
     const detailsElement = document.createElement("div");
     detailsElement.classList.add("car-details");
     detailsElement.innerHTML = `
@@ -162,15 +167,27 @@ function showCars(array = cars) {
         `;
     carListElement.appendChild(detailsElement);
 
+    //Add the "Add-to-Cart button"
     const addToCartButton = document.createElement("button");
     addToCartButton.textContent = "Add to Cart";
     addToCartButton.classList.add("add-to-cart-button");
+    carListElement.appendChild(addToCartButton);
+
+    //Append item to cart
+    addToCartButton.addEventListener("click", () => {
+      addToCart(car);
+    });
     carListElement.appendChild(addToCartButton);
 
     document.getElementById("car-list").appendChild(carListElement);
   }
 }
 
+function addToCart(item) {
+  console.log("Item added to cart:", item);
+}
+
+//Hide car after query
 function hideCars() {
   const ul = document.getElementById("car-list");
   while (ul.firstChild) ul.removeChild(ul.firstChild);
@@ -178,6 +195,7 @@ function hideCars() {
 
 showCars();
 
+//Input function
 document.getElementById("search-container").addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(event.target);
@@ -199,6 +217,7 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
   document.getElementById("model-input").value = "";
 });
 
+//Filter car by make
 function findCarByMake(make) {
   hideCars();
   let filteredCars = cars;
@@ -207,6 +226,7 @@ function findCarByMake(make) {
   );
 }
 
+//filter car by model
 function findCarByMakeModel(model) {
   hideCars();
   let filteredCars = cars;
@@ -219,6 +239,7 @@ function findCarByMakeModel(model) {
   );
 }
 
+//Form function
 let makeinput = document.querySelector("#make-input");
 
 let modelinput = document.querySelector("#model-input");

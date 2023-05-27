@@ -162,6 +162,7 @@ button[type="submit"] {
 img {
   width: 100%;
   margin-top: 15px;
+  height: 250px;
   /* margin: 0; */
 }
 
