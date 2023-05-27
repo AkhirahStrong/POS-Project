@@ -185,20 +185,14 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
 function findCarByMake(make) {
   hideCars();
   let filteredCars = cars;
-  showCars(
-    filteredCars.filter((car) => car.make.toLowerCase() === make.toLowerCase())
-  );
+  showCars(filteredCars.filter((car) => car.make === make));
 }
 
 function findCarByMakeModel(make, model) {
   hideCars();
   let filteredCars = cars;
   showCars(
-    filteredCars.filter(
-      (car) =>
-        car.make.toLowerCase() === make.toLowerCase() &&
-        car.model.toLowerCase() === model.toLowerCase()
-    )
+    filteredCars.filter((car) => car.make === make && car.model === model)
   );
 }
 
