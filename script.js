@@ -142,11 +142,11 @@ function showCars(array = cars) {
     const detailsElement = document.createElement("div");
     detailsElement.classList.add("car-details");
     detailsElement.innerHTML = `
-          
-          <p>Color: ${car.color}</p>
-          <p>Price: ${car.price}</p>
-          <p>Available: ${car.available ? "Yes" : "No"}</p>
-      `;
+            
+            <p>Color: ${car.color}</p>
+            <p>Price: ${car.price}</p>
+            <p>Available: ${car.available ? "Yes" : "No"}</p>
+        `;
     carListElement.appendChild(detailsElement);
 
     document.getElementById("car-list").appendChild(carListElement);
@@ -174,6 +174,8 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
     console.error("Input Required");
   } else if (model === "") {
     findCarByMake(make);
+  } else if (make === "") {
+    findCarByMakeModel(model);
   } else {
     findCarByMakeModel(make, model);
   }
@@ -185,14 +187,20 @@ document.getElementById("search-container").addEventListener("submit", (e) => {
 function findCarByMake(make) {
   hideCars();
   let filteredCars = cars;
-  showCars(filteredCars.filter((car) => car.make === make));
+  showCars(
+    filteredCars.filter((car) => car.make.toLowerCase() === make.toLowerCase())
+  );
 }
 
-function findCarByMakeModel(make, model) {
+function findCarByMakeModel(model) {
   hideCars();
   let filteredCars = cars;
   showCars(
-    filteredCars.filter((car) => car.make === make && car.model === model)
+    filteredCars.filter(
+      (car) =>
+        // car.make.toLowerCase() === make.toLowerCase() &&
+        car.model.toLowerCase() === model.toLowerCase()
+    )
   );
 }
 
