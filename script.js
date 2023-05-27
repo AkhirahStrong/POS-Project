@@ -162,10 +162,12 @@ function showCars(array = cars) {
         `;
     carListElement.appendChild(detailsElement);
 
-    document.getElementById("car-list").appendChild(carListElement);
+    const addToCartButton = document.createElement("button");
+    addToCartButton.textContent = "Add to Cart";
+    addToCartButton.classList.add("add-to-cart-button");
+    carListElement.appendChild(addToCartButton);
 
-    const addToCart = document.createElement("button");
-    addToCart.textContent = "Cart";
+    document.getElementById("car-list").appendChild(carListElement);
   }
 }
 
