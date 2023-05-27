@@ -147,13 +147,25 @@ button[type="submit"] {
 }
 
 .car {
-  background-color: lightblue;
-  padding: 20px;
+  background-color: rgb(240, 244, 246);
+  padding: 3px;
   margin: 10px;
   width: 100%;
+  max-width: 400px;
+  align-items: center;
+  margin-right: 50px;
+  border-radius: 10px;
   /* max-width: ; */
 }
 
 img {
   width: 100%;
+  margin-top: 15px;
+  /* margin: 0; */
+}
+
+#car-list {
+  color: #0d1722;
+  font-size: 20px;
+  /* padding-left: 20px; */
 }

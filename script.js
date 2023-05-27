@@ -142,6 +142,7 @@ let cars = [
 function showCars(array = cars) {
   for (let car of array) {
     const carListElement = document.createElement("li");
+    // listItem.classList.add("list-item");
     carListElement.classList.add("car");
     carListElement.innerHTML = `${car.year} ${car.make} ${car.model} `;
     document.getElementById("car-list").append(carListElement);
@@ -156,7 +157,7 @@ function showCars(array = cars) {
     detailsElement.innerHTML = `
             
             <p>Color: ${car.color}</p>
-            <p>Price: ${car.price}</p>
+            <p>Price: $${car.price.toLocaleString()}</p>
             <p>Available: ${car.available ? "Yes" : "No"}</p>
         `;
     carListElement.appendChild(detailsElement);
