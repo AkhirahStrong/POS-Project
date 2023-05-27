@@ -160,3 +160,8 @@ button {
   height: 50px;
   background-color: #ccc;
 }
+
+.mobile-menu.show-menu {
+  display: flex;
+  /* Additional styles for when the menu is open */
+}

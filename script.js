@@ -6,6 +6,16 @@ document.querySelector(".menuIcon").addEventListener("click", function (e) {
     menuItems.classList.add("show-menu");
   } else {
     menuItems.style.display = "none";
+    menuItems.classList.remove("show-menu");
+  }
+});
+
+document.addEventListener("click", function (e) {
+  const menu = document.querySelector(".mobile-menu");
+  const menuIcon = document.querySelector(".menuIcon");
+  if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+    menu.style.display = "none";
+    menu.classList.remove("show-menu");
   }
 });
 
