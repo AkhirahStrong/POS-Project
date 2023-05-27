@@ -151,14 +151,9 @@ button[type="submit"] {
   padding: 20px;
   margin: 10px;
   width: 100%;
-  max-width: ;
+  /* max-width: ; */
 }
 
 img {
   width: 100%;
 }
-
-/* .mobile-menu.show-menu {
-  display: flex;
-  /* Additional styles for when the menu is open 
-} */

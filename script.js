@@ -27,7 +27,7 @@ let cars = [
     color: "Black",
     price: 180000,
     available: true,
-    image: "/imgs/benz.jpg",
+    image: "/imgs/bmw - i7.webp",
   },
   {
     make: "Jeep",
@@ -36,6 +36,7 @@ let cars = [
     color: "Black",
     price: 50000,
     available: true,
+    image: "/imgs/Jeep- Cheerokee -Wagoneer -Black.jpg",
   },
   {
     make: "Ford",
@@ -44,6 +45,7 @@ let cars = [
     color: "Black",
     price: 80000,
     available: true,
+    image: "/imgs/6292f5ccbdae8.jpg",
   },
   {
     make: "Lancia",
@@ -52,6 +54,7 @@ let cars = [
     color: "Green",
     price: 400000,
     available: true,
+    image: "/imgs/Lancia-Stratos-Green.jpg",
   },
   {
     make: "Jeep",
@@ -60,6 +63,7 @@ let cars = [
     color: "White",
     price: 5000,
     available: true,
+    image: "/imgs/1999-jeep-cherokee.jpg",
   },
   {
     make: "Lamborghini",
@@ -68,6 +72,7 @@ let cars = [
     color: "Silver",
     price: 500000,
     available: true,
+    image: "/imgs/Lambo Diablo white.webp",
   },
   {
     make: "Susuki",
@@ -76,6 +81,7 @@ let cars = [
     color: "Green",
     price: 18000,
     available: true,
+    image: "/imgs/Suzuki Samurai Green.jpeg",
   },
   {
     make: "Kia",
@@ -84,6 +90,7 @@ let cars = [
     color: "Blue",
     price: 28000,
     available: true,
+    image: "/imgs/Kia Sportage blue .webp",
   },
   {
     make: "Mini",
@@ -92,6 +99,7 @@ let cars = [
     color: "Red",
     price: 22000,
     available: true,
+    image: "/imgs/Mini Cooper S Red.jpg",
   },
   {
     make: "Jeep",
@@ -100,6 +108,7 @@ let cars = [
     color: "Red",
     price: 12500,
     available: true,
+    image: "/imgs/Jeep Wrangler Red 2013.webp",
   },
   {
     make: "Jeep",
@@ -108,6 +117,7 @@ let cars = [
     color: "Red",
     price: 33000,
     available: true,
+    image: "/imgs/Jeep Wrangler Red 1983.webp",
   },
   {
     make: "Chevy",
@@ -116,6 +126,7 @@ let cars = [
     color: "White",
     price: 9000,
     available: true,
+    image: "/imgs/Chevy Sonic White 2013.jpg",
   },
   {
     make: "Chevy",
@@ -124,6 +135,7 @@ let cars = [
     color: "Black",
     price: 40000,
     available: true,
+    image: "/imgs/Chevy Impala 1972 Black.jpg",
   },
 ];
 
