@@ -1,3 +1,5 @@
+const cartItems = [];
+
 // Displays menu
 document.querySelector(".menuIcon").addEventListener("click", function (e) {
   e.preventDefault();
@@ -184,7 +186,24 @@ function showCars(array = cars) {
 }
 
 function addToCart(item) {
-  console.log("Item added to cart:", item);
+  cartItems.push(item);
+  updateCart();
+}
+
+function updateCart() {
+  const cartContainer = document.getElementById("cart-container");
+  cartContainer.innerHTML = ""; // Clear previous contents of the cart container
+
+  for (let item of cartItems) {
+    const cartItemElement = document.createElement("div");
+    cartItemElement.classList.add("add-to-cart-button");
+
+    cartItemElement.textContent = `$${item.price.toLocaleString()} ${
+      item.year
+    } ${item.make} ${item.model}  ${item.color}`;
+
+    cartContainer.appendChild(cartItemElement);
+  }
 }
 
 //Hide car after query
