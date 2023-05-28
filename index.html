@@ -19,33 +19,34 @@
 
     <div class="menu-style2">
       <ul class="mobile-menu desktop-menu" id="menu">
-        <li><a href="#header">Home</a></li>
-        <li><a href="#sec1">About</a></li>
-        <li><a href="#sec2">Contact</a></li>
+        <li><a href="#search-container">Search Car</a></li>
+        <li><a href="#sec1">Sell/Trade</a></li>
+        <li><a href="#sec2">Checkout</a></li>
       </ul>
     </div>
 
     <header class="header-section">
       <h1>This is the header</h1>
-      <form id="search-container">
+      <form id="search-container" class="">
         <input name="make" id="make-input" type="text" placeholder="Make" />
         <input name="model" id="model-input" type="text" placeholder="Model" />
-        <button type="submit">Search</button>
+
+        <button class="btn" type="submit">Search</button>
       </form>
     </header>
 
     <main>
       <section class="product-container" id="product-container">
-        <h2>Current Inventory</h2>
+        <h2 class="style-header">Current Inventory</h2>
         <ul id="car-list"></ul>
         <div id="imageContainer"></div>
       </section>
-      <section class="section2" id="sec2">
-        <h1>Product List</h1>
-        <ul id="vehicle-list">
-          <li>temp</li>
-          <div id="cart">Cart</div>
-        </ul>
+      <div class="divider"></div>
+      <!-- <section class="cart" id="cart"> -->
+        <h1>Cart</h1>
+        <!-- <ul id="vehicle-list"> -->
+          <div id="cart-container"></div>
+        <!-- </ul> -->
       </section>
     </main>
     <footer class="footer">
