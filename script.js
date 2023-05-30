@@ -187,7 +187,11 @@ function showCars(array = cars) {
 
 function updateCart() {
   const cartContainer = document.getElementById("cart-container");
-  cartContainer.innerHTML = ""; // Clear previous contents of the cart container
+  // Clear previous contents of the cart container
+  cartContainer.innerHTML = "";
+
+  // Variable to store the total price
+  let totalPrice = 0;
 
   for (let i = 0; i < cartItems.length; i++) {
     const item = cartItems[i];
@@ -204,7 +208,7 @@ function updateCart() {
     detailsElement.textContent = `$${item.price.toLocaleString()} 
       ${item.year} ${item.make} ${item.model} ${item.color}`;
 
-    // Create a closure to capture the current item index
+    // Get the current item index
     (function (index) {
       // Attach a click event listener to remove the item
       cartItemElement.addEventListener("click", function () {
@@ -214,15 +218,62 @@ function updateCart() {
       });
     })(i);
 
+    //Add items to cart section
     cartItemElement.appendChild(imageElement);
     cartItemElement.appendChild(detailsElement);
-
     cartContainer.appendChild(cartItemElement);
+
+    // Add item price to the total price
+    totalPrice += item.price;
   }
+
+  const taxes = 0.06;
+
+  //Calculate total
+  const totalPriceWithTax = totalPrice * (1 + taxes);
+
+  //The undefinded perameter adapts the laguage from the bworser language
+  const formattedPrice = totalPrice.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const formattedTax = (totalPrice * taxes).toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const formattedPriceWithTax = totalPriceWithTax.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  // Display the total price in the cart
+  const priceElement = document.createElement("div");
+  priceElement.textContent = `Price: ${formattedPrice}`;
+  priceElement.classList.add("style-price-output");
+  cartContainer.appendChild(priceElement);
+
+  const taxesElement = document.createElement("div");
+  taxesElement.textContent = `Taxes: ${formattedTax}`;
+  taxesElement.classList.add("style-price-output");
+  cartContainer.appendChild(taxesElement);
+
+  const totalElement = document.createElement("div");
+  totalElement.textContent = `Total Price with Tax: ${formattedPriceWithTax}`;
+  totalElement.classList.add("style-price-output");
+  cartContainer.appendChild(totalElement);
+
   const cartIcon = document.getElementById("cart-icon");
   const cartCount = document.getElementById("cart-count");
 
   cartCount.textContent = cartItems.length;
+
+  cartIcon.setAttribute(
+    "title",
+    `Total Price with Tax:
+    ${formattedPriceWithTax}`
+  );
 }
 
 function addToCart(item) {

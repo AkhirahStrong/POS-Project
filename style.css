@@ -206,6 +206,7 @@ img {
 
 .style-result {
   display: flex;
+  flex-direction: column;
 }
 
 .cart-item {
@@ -214,6 +215,33 @@ img {
   box-sizing: border-box;
 }
 
+#cart-count {
+  color: #007bff;
+  font-size: 25px;
+}
+
+#cart-icon {
+  color: #007bff;
+  font-size: 25px;
+}
+
+.style-price-output {
+  display: flex;
+  margin: 15px;
+  width: 100%;
+  font-size: 50px;
+}
+
+.style-checkout {
+  padding: 15px;
+  border: 1px solid rgb(0, 123, 255);
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px;
+  font-weight: 700;
+  color: #007bff;
+  background-color: #fff;
+}
 /* section 2 */
 
 .divider {
