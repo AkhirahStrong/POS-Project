@@ -185,25 +185,106 @@ function showCars(array = cars) {
   }
 }
 
-function addToCart(item) {
-  cartItems.push(item);
-  updateCart();
-}
-
 function updateCart() {
   const cartContainer = document.getElementById("cart-container");
-  cartContainer.innerHTML = ""; // Clear previous contents of the cart container
+  // Clear previous contents of the cart container
+  cartContainer.innerHTML = "";
 
-  for (let item of cartItems) {
+  // Variable to store the total price
+  let totalPrice = 0;
+
+  for (let i = 0; i < cartItems.length; i++) {
+    const item = cartItems[i];
     const cartItemElement = document.createElement("div");
     cartItemElement.classList.add("add-to-cart-button");
 
-    cartItemElement.textContent = `$${item.price.toLocaleString()} ${
-      item.year
-    } ${item.make} ${item.model}  ${item.color}`;
+    const imageElement = document.createElement("img");
+    imageElement.classList.add("style-result");
+    imageElement.src = item.image;
+    imageElement.alt = `${item.make} ${item.model}`;
 
+    const detailsElement = document.createElement("div");
+    imageElement.classList.add("style-result");
+    detailsElement.textContent = `$${item.price.toLocaleString()} 
+      ${item.year} ${item.make} ${item.model} ${item.color}`;
+
+    // Create a remove button for each item
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("remove-button");
+
+    // Get the current item index
+    (function (index) {
+      // Attach a click event listener to remove the item
+      cartItemElement.addEventListener("click", function () {
+        // Remove the item from the cartItems array
+        cartItems.splice(index, 1);
+        updateCart(); // Update the cart display
+      });
+    })(i);
+
+    //Add items to cart section
+    cartItemElement.appendChild(imageElement);
+    cartItemElement.appendChild(detailsElement);
+    cartItemElement.appendChild(removeButton);
     cartContainer.appendChild(cartItemElement);
+
+    // Add item price to the total price
+    totalPrice += item.price;
   }
+
+  const taxes = 0.06;
+
+  //Calculate total
+  const totalPriceWithTax = totalPrice * (1 + taxes);
+
+  //The undefinded perameter adapts the laguage from the bworser language
+  const formattedPrice = totalPrice.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const formattedTax = (totalPrice * taxes).toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const formattedPriceWithTax = totalPriceWithTax.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+  });
+
+  // Display the total price in the cart
+  const priceElement = document.createElement("div");
+  priceElement.textContent = `Price: ${formattedPrice}`;
+  priceElement.classList.add("style-price-output");
+  cartContainer.appendChild(priceElement);
+
+  const taxesElement = document.createElement("div");
+  taxesElement.textContent = `Taxes: ${formattedTax}`;
+  taxesElement.classList.add("style-price-output");
+  cartContainer.appendChild(taxesElement);
+
+  const totalElement = document.createElement("div");
+  totalElement.textContent = `Total Price with Tax: ${formattedPriceWithTax}`;
+  totalElement.classList.add("style-price-output");
+  cartContainer.appendChild(totalElement);
+
+  const cartIcon = document.getElementById("cart-icon");
+  const cartCount = document.getElementById("cart-count");
+
+  cartCount.textContent = cartItems.length;
+
+  cartIcon.setAttribute(
+    "title",
+    `Total Price with Tax:
+    ${formattedPriceWithTax}`
+  );
+}
+
+function addToCart(item) {
+  cartItems.push(item);
+  updateCart();
 }
 
 //Hide car after query

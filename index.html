@@ -8,8 +8,13 @@
     <title>Cars</title>
   </head>
   <body>
-    <nav class="menu-style" id="menu-style">
+    <nav class="menu-style" id="menu-style ">
       <h1>Custom Cars</h1>
+      <div id="add-cart" class="add-cart">
+        <span id="cart-icon">🛒</span>
+        <span id="cart-count">0</span>
+      </div>
+
       <div class="menuIcon" id="menuIcon">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -20,7 +25,7 @@
     <div class="menu-style2">
       <ul class="mobile-menu desktop-menu" id="menu">
         <li><a href="#search-container">Search Car</a></li>
-        <li><a href="#sec1">Sell/Trade</a></li>
+        <li><a href="#viewCart">View Cart</a></li>
         <li><a href="#sec2">Checkout</a></li>
       </ul>
     </div>
@@ -41,16 +46,22 @@
         <ul id="car-list"></ul>
         <div id="imageContainer"></div>
       </section>
-      <div class="divider"></div>
-      <!-- <section class="cart" id="cart"> -->
-        <h1>Cart</h1>
-        <!-- <ul id="vehicle-list"> -->
-          <div id="cart-container"></div>
-        <!-- </ul> -->
+      <!-- <div class="divider"></div> -->
+      <section class="style-cart">
+        <h1 class="style-header" id="viewCart">View Cart</h1>
+        <h2 class="style-subheader" id="viewCart">Cart Items</h2>
+        <div id="cart-container" class="cart-container"></div>
+        <a href="checkoutform.html"
+          ><button class="style-checkout">Checkout</button></a
+        >
       </section>
     </main>
     <footer class="footer">
-      <h1>footer</h1>
+      <h1 class="style-header">Footer</h1>
+      <div class="footer-links">
+        <h2>Copy Right 2023 &nbsp;</h2>
+        <h2>Privacy</h2>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>
