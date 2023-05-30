@@ -208,6 +208,11 @@ function updateCart() {
     detailsElement.textContent = `$${item.price.toLocaleString()} 
       ${item.year} ${item.make} ${item.model} ${item.color}`;
 
+    // Create a remove button for each item
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("remove-button");
+
     // Get the current item index
     (function (index) {
       // Attach a click event listener to remove the item
@@ -221,6 +226,7 @@ function updateCart() {
     //Add items to cart section
     cartItemElement.appendChild(imageElement);
     cartItemElement.appendChild(detailsElement);
+    cartItemElement.appendChild(removeButton);
     cartContainer.appendChild(cartItemElement);
 
     // Add item price to the total price
