@@ -183,3 +183,7 @@ search.addEventListener('click', function(){
   );
 console.log(filteredCars)
 })
+
+document.querySelector("#checkoutform").addEventListener('click', function(){
+  window.location.href="checkoutform.html"
+})
