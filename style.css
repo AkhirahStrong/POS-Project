@@ -259,6 +259,17 @@ img {
 }
 /* section 2 */
 
+/* Checkout */
+
+/* .hide-show-form {
+  display: none;
+} */
+
+#checkout-section {
+  display: none;
+}
+
+/* Footer */
 .footer {
   display: flex;
   flex-direction: column;
