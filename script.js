@@ -352,5 +352,11 @@ search.addEventListener("click", function () {
   const filteredCars = cars.filter((car) =>
     car.model.toLowerCase().includes(makeinput.innerHTML)
   );
-  console.log(filteredCars);
-});
+
+console.log(filteredCars)
+})
+
+document.querySelector("#checkoutform").addEventListener('click', function(){
+  window.location.href="checkoutform.html"
+})
+
