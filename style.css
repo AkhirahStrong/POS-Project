@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -274,4 +277,67 @@ img {
   /* height: 2px; */
   justify-content: space-between;
   margin: 15px;
+}
+
+/* Checkout Form */
+
+.checkout-input {
+  padding: 10px;
+  margin-inline: 20px;
+  margin-block: 5px;
+
+}
+
+.checkout-label {
+  background-color: lightblue;
+  padding: 10px;
+}
+
+#checkout-form {
+  padding-top: 60px;
+}
+
+.col-50 {
+  display: flex;
+  flex-direction: column;
+}
+
+#final-btn {
+  background-color: palegreen;
+  border: 0;
+  border-radius: 8px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 756px) {
+  #final-btn {
+    background-color: palegreen;
+    border: 0;
+    border-radius: 8px;
+    width: 15%;
+    padding: 10px;
+  }
+  #make-input,
+  #model-input {
+    max-width: 15%;
+    margin: 5px;
+  }
+  #search-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+  }
+  button[type="submit"] {
+    margin: 5px;
+  }
+  .col-50 {
+    flex-direction: row;
+  }
+  .checkout-input {
+    padding: 5px;
+    margin-inline: 10px;
+  }
 }
