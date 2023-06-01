@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Cars</title>
   </head>
-  <body>
+  <body id="body">
     <nav class="menu-style" id="menu-style ">
       <h1>Custom Cars</h1>
       <div id="add-cart" class="add-cart">
@@ -40,7 +41,7 @@
       </form>
     </header>
 
-    <main>
+    <main id="main">
       <!-- Display the products -->
       <section class="product-container" id="product-container">
         <h2 class="style-header">Current Inventory</h2>
@@ -59,53 +60,85 @@
           </button></a
         >
       </section>
-
       <!-- Checkout section -->
       <section class="checkout-section" id="checkout-section">
         <form id="checkout-form" class="hide-show-form">
-          <h2>Payment Information</h2>
-          <div>
-            <label for="cardholder-name">Cardholder Name</label>
-            <input
-              type="text"
-              id="cardholder-name"
-              name="cardholder-name"
-              required
-            />
+          <div class="row">
+            <div class="col-75">
+              <div class="checkout-container">
+                <form action="/action_page.php">
+                  <div class="row">
+                    <div class="col-50">
+                      <form id="addressForm">
+                      <h3>Billing Address</h3>
+                      <label class="checkout-label" for="fname"><i class="fa fa-user"></i> Full Name</label>
+                      <input class="checkout-input" type="text" id="fname" name="fname" placeholder="John M. Doe">
+                      <label class="checkout-label" for="email"><i class="fa fa-envelope"></i> Email</label>
+                      <input class="checkout-input" type="text" id="email" name="email" placeholder="john@example.com">
+                      <label class="checkout-label" for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                      <input class="checkout-input" type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                      <label class="checkout-label" for="city"><i class="fa fa-institution"></i> City</label>
+                      <input class="checkout-input" type="text" id="city" name="city" placeholder="New York">
+          
+                      <div class="row">
+                        <div class="col-50">
+                          <label class="checkout-label" for="state">State</label>
+                          <input class="checkout-input" type="text" id="state" name="state" placeholder="NY">
+                        </div>
+                        <div class="col-50">
+                          <label class="checkout-label" for="zip">Zip</label>
+                          <input class="checkout-input" type="text" id="zip" name="zip" placeholder="10001">
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+                    <div class="col-50">
+                      <h3>Payment</h3>
+                      <h2>Card</h2>
+                      <label class="checkout-label" for="fname">Accepted Cards</label>
+                      <div class="icon-container">
+                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                      </div>
+                      <label class="checkout-label" for="cname">Name on Card</label>
+                      <input class="checkout-input" type="text" id="cname" name="cardname" placeholder="John More Doe">
+                      <label class="checkout-label" for="ccnum">Credit card number</label>
+                      <input class="checkout-input" type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                      <label class="checkout-label" for="expmonth">Exp Month</label>
+                      <input class="checkout-input" type="text" id="expmonth" name="expmonth" placeholder="September">
+                      <div class="row">
+                        <div class="col-50">
+                          <label class="checkout-label" for="expyear">Exp Year</label>
+                          <input class="checkout-input" type="text" id="expyear" name="expyear" placeholder="2018">
+                        </div>
+                        <div class="col-50">
+                          <label class="checkout-label" for="cvv">CVV</label>
+                          <input class="checkout-input" type="text" id="cvv" name="cvv" placeholder="352">
+                        </div>
+                      </div>
+                      <h2>Cash</h2>
+                      <label class="checkout-label" for="cashamt">Cash Amount</label>
+                      <input class="checkout-input" type="text" id="cashamt" name="cashamt" placeholder="$0000000">
+                    </div>
+                  </div>
+                  <input id="complete-checkout" class="checkout-input btn" type="submit" value="Complete Checkout">
+                  <section id="thank-you">
+                  </section>
+                </form>
+              </div>
+            </div>
           </div>
-          <div>
-            <label for="card-number">Card Number</label>
-            <input type="text" id="card-number" name="card-number" required />
-          </div>
-          <div>
-            <label for="expiration-date">Expiration Date</label>
-            <input
-              type="text"
-              id="expiration-date"
-              name="expiration-date"
-              placeholder="MM/YYYY"
-              required
-            />
-          </div>
-          <div>
-            <label for="cvv">CVV</label>
-            <input type="text" id="cvv" name="cvv" required />
-          </div>
-
-          <button type="submit">Complete Checkout</button>
         </form>
       </section>
     </main>
     <footer class="footer">
-      <h1 class="style-header">Footer</h1>
       <div class="footer-links">
         <h2>Copy Right 2023 &nbsp;</h2>
         <h2>Privacy</h2>
       </div>
     </footer>
-    <button id="checkoutform">Checkout
-
-    </button> 
     <script src="script.js"></script>
   </body>
 </html>
