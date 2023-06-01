@@ -280,6 +280,18 @@ function updateCart() {
     `Total Price with Tax:
     ${formattedPriceWithTax}`
   );
+
+  const checkoutButton = document.getElementById("checkout-button");
+  const checkoutSection = document.getElementById("checkout-section");
+
+  checkoutButton.addEventListener("click", function (e) {
+    // e.preventDefault();
+    if (checkoutSection.style.display === "none") {
+      checkoutSection.style.display = "block";
+    } else {
+      checkoutSection.style.display = "none";
+    }
+  });
 }
 
 function addToCart(item) {
